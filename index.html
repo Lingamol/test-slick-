@@ -36,7 +36,7 @@
               <p class="portfolio-projects-list-item-text">Веб-сайт</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item">
+          <li class="portfolio-projects-list-item slider__item">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -66,7 +66,7 @@
               <p class="portfolio-projects-list-item-text">Приложение</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item">
+          <li class="portfolio-projects-list-item slider__item">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -126,7 +126,7 @@
               <p class="portfolio-projects-list-item-text">Дизайн</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item">
+          <li class="portfolio-projects-list-item slider__item">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -180,6 +180,15 @@
         easing: 'ease',
         infinite: true,
         initialSlide: 0,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+        pauseOnDotsFocus: true,
+        draggable: true,
+        swipe: true,
+        touchThreshold: 5,
+        tochMove: true,
+        waitForAnimate: true,
+        centerMode: true,
       });
     </script>
   </body>
