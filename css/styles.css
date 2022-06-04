@@ -93,6 +93,10 @@ textarea {
   display: flex;
   align-items: flex-start;
 }
+.slider .slick-track {
+  /* display: block; */
+  /* for vertical slider */
+}
 /* Слайд */
 .slick-slide {
 }
@@ -186,15 +190,23 @@ textarea {
   right: 0;
   background: url('../images/sl-arrow_r.svg') #ffee99 0 0 / 100% no-repeat;
 }
-.slider .slider__item {
+/* .slider .slider__item {
   opacity: 0.4;
   text-align: center;
-}
+} */
 .slider__item {
   width: 400px;
-  opacity: 0.4;
+  /* opacity: 0.4; */
   text-align: center;
+  transition: all 0.3s ease 0s;
 }
 .slider__item.slick-center {
   opacity: 1;
+}
+/* big-slider */
+
+.slider-big__item {
+  width: 400px;
+
+  text-align: center;
 }
