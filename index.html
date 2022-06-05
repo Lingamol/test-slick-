@@ -233,7 +233,7 @@
               <p class="portfolio-projects-list-item-text">Приложение</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item slider__item">
+          <li class="portfolio-projects-list-item slider__item filter">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -248,7 +248,7 @@
               <p class="portfolio-projects-list-item-text">Веб-сайт</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item slider__item">
+          <li class="portfolio-projects-list-item slider__item filter">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -278,7 +278,7 @@
               <p class="portfolio-projects-list-item-text">Маркетинг</p>
             </div>
           </li>
-          <li class="portfolio-projects-list-item slider__item">
+          <li class="portfolio-projects-list-item slider__item filter">
             <div class="portfolio-projects-list-item-thumb">
               <img
                 class="portfolio-projects-list-item-img"
@@ -295,6 +295,9 @@
           </li>
         </ul>
         <div class="content"></div>
+        <a class="link_add" href="">добавить слайд</a>
+        <a class="link_remove" href="">удалить слайд</a>
+        <a class="link_filter" href="">Фильтровать</a>
       </section>
     </div>
     <!-- -------------------------------------------------- -->
@@ -305,90 +308,113 @@
       src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script>
-        $('.slider').slick({
-          dots: true,
-          adaptiveHeight: true,
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          // dotsClass: 'reviews__slick-dots', // название класса для точек
-          autoplay: true,
-          autoplaySpeed: 3000,
-          speed: 700,
-          arrows: true,
-          easing: 'ease',
-          infinite: true,
-          // initialSlide: 0,
-          pauseOnFocus: true,
-          pauseOnHover: true,
-          pauseOnDotsFocus: true,
-          draggable: true,
-          swipe: true,
-          touchThreshold: 5,
-          tochMove: true,
-          waitForAnimate: true,
-          // centerMode: true,
-          wariableWidth: true,
-          rows: 1,
-          slidesPerRow: 1,
-          vertical: false, //вертикальный слайдер + display: block в стилях (.slider .slick-track )
-          verticalSwiping: false, //для вертикального сладера
-          asNavFor: '.slider-big', //связь с большим слайдером
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2,
-              },
+      $('.slider').slick({
+        dots: true,
+        adaptiveHeight: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // dotsClass: 'reviews__slick-dots', // название класса для точек
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 700,
+        arrows: true,
+        easing: 'ease',
+        infinite: true,
+        // initialSlide: 0,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+        pauseOnDotsFocus: true,
+        draggable: true,
+        swipe: true,
+        touchThreshold: 5,
+        tochMove: true,
+        waitForAnimate: true,
+        // centerMode: true,
+        wariableWidth: true,
+        rows: 1,
+        slidesPerRow: 1,
+        vertical: false, //вертикальный слайдер + display: block в стилях (.slider .slick-track )
+        verticalSwiping: false, //для вертикального сладера
+        asNavFor: '.slider-big', //связь с большим слайдером
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
             },
-            {
-              breakpoint: 550,
-              settings: {
-                slidesToShow: 1,
-              },
+          },
+          {
+            breakpoint: 550,
+            settings: {
+              slidesToShow: 1,
             },
-          ],
-          // mobileFirst: true, //меняет точки перелома с max-width ->min-width
-          // appendArrows: $('.content'), //вынесение стрелок в отдельный контейнер
-          // appendDots: $('.content'), //вынесение точек в отдельный контейнер
-        });
-        $('.slider-big').slick({
-          arrows: false,
-          fade: true,
-          asNavFor: '.slider', //связь с малым слайдером
-        });
+          },
+        ],
+        // mobileFirst: true, //меняет точки перелома с max-width ->min-width
+        // appendArrows: $('.content'), //вынесение стрелок в отдельный контейнер
+        // appendDots: $('.content'), //вынесение точек в отдельный контейнер
+      });
+      $('.slider-big').slick({
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider', //связь с малым слайдером
+      });
 
-        //////////////////////////////////////////////////////////////////////////////////
-        ///////////события по слайдерам................
-        $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-          console.log(currentSlide);
-        });
-        $('.slider').on('afterChange', function (event, slick, currentSlide, nextSlide) {
-          console.log(currentSlide);
-        });
-        //////////////////////////////////////////////////////////////////////////////////
-        ///////////методы по слайдерам................
-        //   $('.slider').slick('setPosition'); //Инициализация
-        $('.slider').slick('goTo', 5); //перелистывание до конкретного слайда
-        //   $('.link').click(function (event) { ///пример перехода по ссылке
-        //     $('.slider').slick('goTo', 5);
-        //   });
-        //////////////////////////////////////////////////////////////////////////
-        $('.slider').slick('slickPrev'); //перелистывание назад
-        $('.slider').slick('slickNext'); //перелистывание вперед
-        // $('.link_r').click(function (event) { ///пример перелистывания по ссылке
-        //     $('.slider').slick('slickNext');
-        //   });
-        ////////////////////////////////////////////////////////////////
-        //   $('.link_play').click(function (event) { ///запуск автопроигрования
-        //     $('.slider').slick('slickPlay');
-        //   });
-        //////////////////////////////////////////////////////////////////////
-      $('.link_pause').click(function (event) { ///запуск автопроигрования
-        //     $('.slider').slick('slickPause');
-        //   });
-        $('.link_add').click(function (event) { ///запуск автопроигрования
-        //     $('.slider').slick('slickAdd', "");
-        //   });
+      //////////////////////////////////////////////////////////////////////////////////
+      ///////////события по слайдерам................
+      $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        console.log(currentSlide);
+      });
+      $('.slider').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+        console.log(currentSlide);
+      });
+      //////////////////////////////////////////////////////////////////////////////////
+      ///////////методы по слайдерам................
+      //   $('.slider').slick('setPosition'); //Инициализация
+      //   $('.slider').slick('goTo', 5); //перелистывание до конкретного слайда
+      //   $('.link').click(function (event) { ///пример перехода по ссылке
+      //     $('.slider').slick('goTo', 5);
+      //   });
+      //////////////////////////////////////////////////////////////////////////
+      //   $('.slider').slick('slickPrev'); //перелистывание назад
+      //   $('.slider').slick('slickNext'); //перелистывание вперед
+      // $('.link_r').click(function (event) { ///пример перелистывания по ссылке
+      //     $('.slider').slick('slickNext');
+      //   });
+      ////////////////////////////////////////////////////////////////
+      //   $('.link_play').click(function (event) { ///запуск автопроигрования
+      //     $('.slider').slick('slickPlay');
+      //   });
+      //////////////////////////////////////////////////////////////////////
+      //   $('.link_pause').click(function (event) { ///приостановка автопроигрования
+      //     $('.slider').slick('slickPause');
+      //   });
+      /////////////////////////////////////////////////////////////////////////
+      //   $('.link_add').click(function (event) {
+      //     ///добавление нового слайда
+      //     $('.slider').slick('slickAdd', '<div class="newslide">123</div>');
+      //     return false;
+      //   });
+      //   $('.link_remove').click(function (event) {
+      //     ///удаление слайда
+      //     $('.slider').slick('slickRemove', 0);
+      //     return false;
+      //   });
+      ////////////////////////////////////////////////////////////////////////////////////////
+      var filtered = false;
+      $('.link_filter').on('click', function () {
+        ///фильтрация слайдов по класу .filter
+        if (filtered === false) {
+          $('.slider').slick('slickFilter', '.filter');
+          $(this).text('Убрать фильтр');
+          filtered = true;
+        } else {
+          $('.slider').slick('slickUnfilter');
+          $(this).text('Фильтровать');
+          filtered = false;
+        }
+        return false;
+      });
     </script>
   </body>
 </html>
